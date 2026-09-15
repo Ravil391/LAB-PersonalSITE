@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практические задания по HTML — Соколов А.</title>
+    
+    <!-- ВНЕШНИЙ CSS (Требование Задания 3: CSS) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+/* ============ ВНЕШНИЙ CSS ДЛЯ ЗАДАНИЯ 3 (CSS) ============ */
+#main-title-css {
+    color: blue;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.section-title-css {
+    color: #800080;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.underline-css {
+    text-decoration: underline;
+}
+        /* ============ ОБЩИЕ СТИЛИ ============ */
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(145deg, #f0f4f8 0%, #d9e2ec 100%);
+            margin: 0;
+            padding: 20px;
+            color: #1e2b3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0, 20, 30, 0.2);
+            padding: 30px 35px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        h1.main-title {
+            color: #0b3b5c;
+            font-size: 2.2rem;
+            border-left: 8px solid #2a7faa;
+            padding-left: 20px;
+            margin-top: 0;
+        }
+
+        /* ============ НАВИГАЦИЯ ============ */
+        nav {
+            background: #eef5fa;
+            border-radius: 16px;
+            padding: 15px 25px;
+            margin: 20px 0 35px;
+            border: 1px solid #b6d2e6;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+        }
+
+        nav a {
+            color: #1b6d9b;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #0c3b55;
+            border-bottom-color: #1b6d9b;
+        }
+
+        /* ============ РАЗДЕЛЫ ЗАДАНИЙ ============ */
+        section.task {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 25px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px -8px rgba(0, 30, 60, 0.15);
+            border: 1px solid #dbe7f0;
+            scroll-margin-top: 20px;
+        }
+
+        section.task > h2 {
+            color: #0b3b5c;
+            font-size: 1.7rem;
+            margin-top: 0;
+            border-bottom: 3px solid #2a7faa;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .task-number {
+            display: inline-block;
+            background: #2a7faa;
+            color: #fff;
+            font-size: 1.1rem;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .to-top {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #1b6d9b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .to-top::before { content: "↑ "; }
+        .to-top:hover { color: #0c3b55; }
+
+        /* ============================================================
+           ЗАДАНИЕ 1: Персональная страница студента
+           ============================================================ */
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+            background: rgba(240, 247, 252, 0.7);
+            border-radius: 24px;
+            padding: 20px 25px;
+            margin: 20px 0 10px;
+            border: 1px solid #dbe7f0;
+        }
+
+        figure {
+            margin: 0;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .student-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 18px -6px #1a3b4e;
+            background: #cbdae6;
+        }
+
+        figcaption {
+            font-size: 0.85rem;
+            color: #2e5a74;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .student-name {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #0a3145;
+            margin: 0 0 5px;
+        }
+
+        .student-group {
+            display: inline-block;
+            background: #2a7faa;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-top: 6px;
+        }
+
+        .task a {
+            color: #1b6d9b;
+            text-decoration: none;
+            border-bottom: 1px dotted #1b6d9b;
+        }
+
+        .task a:hover {
+            color: #0c3b55;
+            border-bottom-style: solid;
+        }
+
+        .task address {
+            font-style: normal;
+            background: #e2edf7;
+            padding: 12px 18px;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 12px 0 8px;
+            border: 1px solid #b6d2e6;
+        }
+
+        .university-block {
+            background: #f8fbfe;
+            border-radius: 20px;
+            padding: 18px 24px;
+            border: 1px solid #cfe0ed;
+            margin: 15px 0;
+        }
+
+        .task mark {
+            background: #fbe9d2;
+            padding: 2px 8px;
+            border-radius: 12px;
+            color: #5e3a1a;
+            font-weight: 500;
+        }
+
+        .hobby-tag {
+            display: inline-block;
+            background: #2e6b8f;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .task blockquote {
+            border-left: 5px solid #2a7faa;
+            background: #f4f9fd;
+            margin: 15px 0;
+            padding: 10px 20px;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+        }
+
+        .task blockquote footer {
+            font-style: normal;
+            font-size: 0.9rem;
+            color: #426579;
+            margin-top: 5px;
+        }
+
+        .task details {
+            background: #f8fbfe;
+            border: 1px solid #b8d0e0;
+            border-radius: 18px;
+            padding: 14px 22px;
+            margin: 18px 0;
+        }
+
+        .task summary {
+            font-weight: 700;
+            color: #195777;
+            font-size: 1.15rem;
+            cursor: pointer;
+        }
+
+        .task table.schedule {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #f9fcff;
+        }
+
+        .task table.schedule th,
+        .task table.schedule td {
+            border: 1px solid #b8d0e0;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .task table.schedule th {
+            background: #2a7faa;
+            color: white;
+        }
+
+        /* ============================================================
+           ЗАДАНИЕ 2: Таблицы А и Б
+           ============================================================ */
+        .tables-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .table-block {
+            text-align: center;
+        }
+
+        .table-block h3 {
+            margin-bottom: 15px;
+            color: #0b3b5c;
+        }
+
+        /* ---- Таблица А (точно по картинке) ---- */
+        .table-a {
+            border-collapse: collapse;
+            width: 600px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .table-a td {
+            border: 2px solid #000;
+            background: #fff;
+        }
+
+        /* ---- Таблица Б (div + flexbox) ---- */
+        .container_1 {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            width: 260px;
+            height: 260px;
+            border: 0.5px solid #000;
+            margin: 0 auto;
+        }
+
+        .container_1 .head,
+        .container_1 .footer {
+            background-color: #00FA9A;
+            height: 30px;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .body {
+            display: flex;
+            justify-content: space-between;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .left_1,
+        .container_1 .right_1 {
+            width: 30px;
+            background-color: #FFDAB9;
+            height: 200px;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .center {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .head_2,
+        .container_1 .footer_2 {
+            background-color: #00FA9A;
+            height: 30px;
+            width: 190px;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .body_2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container_1 .left_2,
+        .container_1 .rigth_2 {
+            width: 30px;
+            height: 134px;
+            background-color: #FFDAB9;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .center_2 {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .container_1 .head_3,
+        .container_1 .fuuter_3 {
+            background-color: #00FA9A;
+            height: 30px;
+            width: 126px;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .dg_4 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container_1 .l_4,
+        .container_1 .r_4 {
+            background-color: #FFDAB9;
+            height: 70px;
+            width: 27px;
+            border: 0.5px solid #000;
+        }
+
+        .container_1 .d_1,
+        .container_1 .d_2,
+        .container_1 .d_3,
+        .container_1 .d_4 {
+            border: 0.5px solid #000;
+            width: 33px;
+            height: 34px;
+        }
+
+        .container_1 .d_1 { background-color: #FF0000; }
+        .container_1 .d_2 { background-color: #0000FF; }
+        .container_1 .d_3 { background-color: #00FF00; }
+        .container_1 .d_4 { background-color: #FFFF00; }
+
+        .container_1 .my_2 {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .container_1 .my_4 {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* ============================================================
+           ВНУТРЕННИЙ CSS ДЛЯ ЗАДАНИЯ 3: Использование технологии CSS
+           ============================================================ */
+        .txt-right { text-align: right; }
+        .txt-center { text-align: center; }
+
+        .bg-cyan { background-color: #00ffff; }
+        .bg-yellow { background-color: #ffff00; }
+        .bg-grey { background-color: #d3d3d3; }
+
+        .css-table-caption {
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .css-sub-title {
+            color: blue;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        table.css-demo-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        table.css-demo-table, 
+        table.css-demo-table th, 
+        table.css-demo-table td {
+            border: 2px solid #555;
+        }
+
+        table.css-demo-table th, 
+        table.css-demo-table td {
+            padding: 6px;
+            text-align: center;
+        }
+
+        /* ============================================================
+           ФОРМА РЕГИСТРАЦИИ
+           ============================================================ */
+        .form-window {
+            border: 2px solid #4a7ebb;
+            border-radius: 4px;
+            padding: 0 20px 20px;
+            max-width: 650px;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+
+        .form-window .titlebar {
+            background: linear-gradient(to bottom, #4a90d9, #1f5fa8);
+            color: white;
+            padding: 5px 15px;
+            margin: 0 -20px 15px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #1a4a80;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .form-window .titlebar::before { content: "🛡️"; font-size: 1rem; }
+
+        .form-window h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin: 5px 0 18px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .form-window label {
+            display: block;
+            font-size: 0.95rem;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+
+        .form-window input[type="text"],
+        .form-window input[type="password"],
+        .form-window input[type="url"],
+        .form-window textarea,
+        .form-window select {
+            width: 100%;
+            max-width: 400px;
+            padding: 4px 7px;
+            border: 1px solid #7a9cbf;
+            border-radius: 2px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        .form-window input[type="password"] {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .form-window textarea {
+            max-width: 450px;
+            height: 90px;
+            resize: vertical;
+        }
+
+        .form-window select { max-width: 200px; background: #f0f6ff; }
+
+        .form-window .button-group {
+            margin-top: 22px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .form-window button {
+            padding: 5px 18px;
+            font-size: 0.95rem;
+            border: 1px solid #4a7ebb;
+            border-radius: 3px;
+            background: linear-gradient(to bottom, #e8f0fe, #c9daf0);
+            color: #1a3a60;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .form-window button:hover {
+            background: linear-gradient(to bottom, #d4e2f7, #b0c8e6);
+        }
+
+        .form-window .file-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .form-window input[type="file"] {
+            font-size: 0.9rem;
+            border: 1px solid #7a9cbf;
+            padding: 2px;
+            background: #fff;
+            border-radius: 2px;
+        }
+
+        .form-window .hint { font-size: 0.8rem; color: #666; }
+
+        /* ============================================================
+           ПТИЦЕФАБРИКА
+           ============================================================ */
+        .poultry-form {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .poultry-form h3 {
+            font-size: 1.9rem;
+            font-weight: bold;
+            margin: 0 0 25px 0;
+            color: #000;
+        }
+
+        .poultry-form table {
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        .poultry-form td {
+            padding: 4px 6px;
+            vertical-align: middle;
+            font-size: 1rem;
+        }
+
+        .poultry-form td.label {
+            text-align: right;
+            white-space: nowrap;
+            padding-right: 8px;
+        }
+
+        .poultry-form input[type="text"],
+        .poultry-form input[type="password"] {
+            border: 1px solid #808080;
+            padding: 2px 4px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fff;
+        }
+
+        .poultry-form .short-field { width: 220px; }
+        .poultry-form .long-field { width: 420px; }
+
+        .poultry-form select {
+            border: 1px solid #808080;
+            padding: 1px 2px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: #fff;
+            margin-right: 5px;
+        }
+
+        .poultry-form input[type="radio"],
+        .poultry-form input[type="checkbox"] {
+            margin: 0 3px 0 8px;
+            vertical-align: middle;
+        }
+
+        .poultry-form textarea {
+            border: 1px solid #808080;
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 3px;
+            resize: both;
+            width: 420px;
+            height: 60px;
+        }
+
+        .poultry-form .inline-label {
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+
+        /* ============ ПОДВАЛ ============ */
+        footer.main-footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #426579;
+            border-top: 1px solid #bdd3e3;
+            padding-top: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="main-title">Практические задания по HTML</h1>
+    <p><strong>Студент:</strong> Мансуров Равиль, 3303, НВГУ</p>
+
+    <nav>
+        <ul>
+            <li><a href="#task1">📄 Задание 1. Персональная страница</a></li>
+            <li><a href="#task2">📊 Задание 2. Таблицы А и Б</a></li>
+            <li><a href="#task3_css">🎨 Задание 3. Использование CSS</a></li>
+            <li><a href="#task3">📝 Задание 4. Форма регистрации сайта</a></li>
+            <li><a href="#task4">🐔 Задание 5. Птицефабрика №1</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================
+         ЗАДАНИЕ 1
+         ============================================================ -->
+    <section class="task" id="task1">
+        <h2><span class="task-number">1</span> Персональная страница студента</h2>
+
+        <div class="profile-header">
+            <figure>
+                <img 
+                    class="student-photo" 
+                    src="MYPHOTO.jpg"
+                    alt="Фото студента: улыбающийся аватар"
+                >
+                <figcaption>Моё фото (аватар)</figcaption>
+            </figure>
+
+            <div class="student-info">
+                <h1 style="font-size: 1.8rem; border: none; padding: 0; margin: 0 0 5px;">Мансуров Равиль</h1>
+                <p><strong>Персональный сайт студента</strong> <em>Нижневартовского государственного университета</em></p>
+                <span class="student-group">🎓 Группа: 3303 (Информационные системы и технологии)</span>
+            </div>
+        </div>
+
+        <h3>📬 Контакты</h3>
+        <address>
+            <strong>Электронная почта:</strong> 
+            <a href="mailto:gamesszedlak@bk.ru">gamesszedlak@bk.ru</a><br>
+            <small>(для связи — учебные и личные вопросы)</small><br>
+            <span style="color: #3f627a;">✉️ также можно написать в Telegram: @Smit</span>
+        </address>
+
+        <h3>🏛️ Мой ВУЗ</h3>
+        <div class="university-block">
+            <p><mark>Нижневартовский государственный университет (НВГУ)</mark> — один из ведущих вузов Ханты-Мансийского автономного округа. Основан в 1988 году.</p>
+            <p>🔗 <strong>Официальный сайт:</strong> 
+                <a href="https://www.nvsu.ru" target="_blank" rel="noopener noreferrer">www.nvsu.ru</a> 
+                <small>(откроется в новой вкладке)</small>
+            </p>
+            <p>📌 <strong>Рабочая страница студента:</strong> 
+                <a href="https://lk.nvsu.ru" target="_blank">lk.nvsu.ru</a>
+            </p>
+            <p><abbr title="Нижневартовский государственный университет">НВГУ</abbr> — это место, где я учусь и развиваюсь.</p>
+        </div>
+
+        <h3>👥 Моя группа</h3>
+        <ul>
+            <li><strong>Группа:</strong> 3303 (Информационные системы и технологии, 4 курс)</li>
+            <li><strong>Куратор:</strong> Симурзина Екатерина Анатольевна</li>
+            <li><strong>Староста:</strong> Константин Билецк</li>
+        </ul>
+
+        <h3>💼 Моя будущая профессия</h3>
+        <blockquote>
+            <p><q>Программист — это не просто человек, который пишет код, это архитектор цифрового будущего.</q></p>
+            <footer>— <cite>Из наставлений преподавателей НВГУ</cite></footer>
+        </blockquote>
+        <p>Я учусь по направлению <strong>«Прикладная информатика»</strong> и в будущем планирую стать <mark>разработчиком веб-приложений</mark> или <mark>специалистом по данным</mark>.</p>
+        <p>Ключевые навыки: <code>Python</code>, <code>JavaScript</code>, <code>SQL</code>, <code>HTML/CSS</code>.</p>
+
+        <h3>🎨 Мои увлечения и хобби</h3>
+        <div>
+            <span class="hobby-tag">📸 Фотография</span>
+            <span class="hobby-tag">🏸 Бадминтон</span>
+            <span class="hobby-tag">🎮 Геймдизайн</span>
+            <span class="hobby-tag">📚 Чтение фантастики</span>
+            <span class="hobby-tag">🎹 Синтезатор</span>
+        </div>
+        <ul>
+            <li><em>Фотография</em> — люблю снимать городские пейзажи и портреты.</li>
+            <li><em>Бадминтон</em> — играю в университетской секции.</li>
+            <li><em>Геймдизайн</em> — изучаю создание игр на Unity.</li>
+        </ul>
+
+        <h3>📋 Дополнительная информация</h3>
+        <details>
+            <summary>Мои достижения и планы (нажми, чтобы раскрыть)</summary>
+            <ul>
+                <li>🏅 Участник олимпиады НВГУ по программированию (2025)</li>
+                <li>📈 Участник хакатона "Цифровой прорыв"</li>
+                <li>📝 Планирую стажировку в IT-компании летом 2027 года</li>
+            </ul>
+            <table class="schedule">
+                <caption><strong>Моё типичное расписание (будни)</strong></caption>
+                <thead>
+                    <tr><th>Время</th><th>Занятие</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>8:30–10:00</td><td>Программирование на Python</td></tr>
+                    <tr><td>10:10–11:40</td><td>Веб-технологии</td></tr>
+                    <tr><td>12:10–13:40</td><td>Базы данных</td></tr>
+                    <tr><td>14:00–15:30</td><td>Физическая культура (бадминтон)</td></tr>
+                </tbody>
+            </table>
+        </details>
+
+        <p>Уровень владения HTML/CSS: <progress value="90" max="100"></progress> 70%</p>
+
+        <a href="#" class="to-top">Наверх</a>
+    </section>
+
+    <!-- ============================================================
+         ЗАДАНИЕ 2
+          -->
+    <section class="task" id="task2">
+        <h2><span class="task-number">2</span> Таблицы А и Б</h2>
+
+        <div class="tables-wrapper">
+            <!--  ТАБЛИЦА А (точно по картинке)  -->
+            <div class="table-block">
+                <h3>А.</h3>
+                <table class="table-a">
+    <!-- Row 1: Top full-width span -->
+    <tr>
+        <td colspan="5"></td>
+    </tr>
+
+    <tr>
+        <td rowspan="3"></td> 
+        <td></td>             
+        <td rowspan="3"></td> 
+        <td></td>             
+        <td></td>            
+    </tr>
+
+    <tr>
+        <td rowspan="4"></td> 
+        <td rowspan="4"></td> 
+        <td></td>            
+
+    </tr>
+
+    <tr>
+        <td></td>    
+    </tr>
+
+    <tr>
+        <td></td>
+ <td></td>
+ <td></td>                   
+    </tr>
+
+
+</table>
+            </div>
+
+            <!--  ТАБЛИЦА Б (div + flexbox)  -->
+            <div class="table-block">
+                <h3>Б.</h3>
+                <div class="container_1">
+                    <div class="head"></div>
+                    <div class="body">
+                        <div class="left_1"></div>
+                        <div class="center">
+                            <div class="head_2"></div>
+                            <div class="body_2">
+                                <div class="left_2"></div>
+                                <div class="center_2">
+                                    <div class="head_3"></div>
+                                    <div class="dg_4">
+                                        <div class="l_4"></div>
+                                        <div class="d_2_4">
+                                            <div class="my_2">
+                                                <div class="d_1"></div>
+                                                <div class="d_2"></div>
+                                            </div>
+                                            <div class="my_4">
+                                                <div class="d_3"></div>
+                                                <div class="d_4"></div>
+                                            </div>
+                                        </div>
+                                        <div class="r_4"></div>
+                                    </div>
+                                    <div class="fuuter_3"></div>
+                                </div>
+                                <div class="rigth_2"></div>
+                            </div>
+                            <div class="footer_2"></div>
+                        </div>
+                        <div class="right_1"></div>
+                    </div>
+                    <div class="footer"></div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="to-top">Наверх</a>
+    </section>
+
+    <!-- ============================================================
+         ЗАДАНИЕ 3: Использование технологии CSS (По образцу с картинки)
+         ============================================================ -->
+    <section class="task" id="task3_css">
+        <h2><span class="task-number">3</span> Использование технологии CSS</h2>
+
+        <!-- Идентификатор #main-title-css из styles.css (Внешний CSS + ID) -->
+        <div id="main-title-css">Т а б л и ц ы в HTML</div>
+
+        <p>
+            <span class="bg-cyan">Одним из наиболее мощных и широко применяемых в <strong>HTML</strong> средств являются <span style="font-weight: bold; font-style: italic;">таблицы.</span></span>
+        </p>
+
+        <p class="txt-right">
+            <span class="bg-yellow underline-css">Понятие табличного представления данных не нуждается в дополнительном пояснении.</span> 
+            <span class="bg-grey">В HTML таблицы используются не только традиционно, как метод представления данных, но и как средство форматирования Web-страниц.</span>
+        </p>
+
+        <!-- Класс .section-title-css из styles.css (Внешний CSS + Class) -->
+        <div class="section-title-css">Создание простейших HTML-таблиц</div>
+
+        <p>
+            <!-- In-line стили (style) -->
+            <span style="background-color: #ff00ff; color: #000; font-weight: bold; font-style: italic; font-size: 20px;">Описание</span> 
+            <span style="font-style: italic; text-decoration: underline;">таблиц должно</span> 
+            располагаться внутри раздела документа &lt;BODY&gt;.
+        </p>
+
+        <p>
+            Каждая <span style="color: blue;">таблица</span> должна <strong>НАЧИНАТЬСЯ</strong> тэгом &lt;TABLE&gt; и завершаться тэгом &lt;/TABLE&gt;.
+        </p>
+
+        <p class="bg-grey">
+            <span style="color: blue; font-style: italic; font-weight: bold;">Каждая</span> строка начинается тэгом &lt;TR&gt; (<u>Table Row</u>) и завершается тэгом &lt;/TR&gt;. 
+            <span style="color: red; font-weight: bold; font-style: italic;">Отдельная</span> ячейка в строке обрамляется парой тегов &lt;TD&gt; и &lt;/TD&gt; (<u>Table Data</u>) или &lt;TH&gt; и &lt;/TH&gt; (<u>Table Header</u>)
+        </p>
+
+        <div class="css-table-caption txt-right">Таблица 1</div>
+
+        <div class="css-sub-title">Математические выражения</div>
+
+        <!-- Таблица (Комбинация внутреннего и In-line CSS) -->
+        <table class="css-demo-table">
+            <tr>
+                <th style="font-style: italic; background-color: #e0e0e0; text-align: left;">Поле1</th>
+                <th style="background-color: #000000; color: #ffffff;">Поле 2</th>
+                <th style="background-color: #00ffff; color: #0000ff;">Поле 3</th>
+                <th style="background-color: #ff80c0; font-style: italic;">Поле 4</th>
+                <th style="background-color: #ffff00; letter-spacing: 3px;">Поле 5</th>
+            </tr>
+            <tr>
+                <td style="color: blue; font-weight: bold;">(a+b)<sup>2</sup></td>
+                <td style="font-weight: bold;">a<sup>2</sup>-b<sup>2</sup></td>
+                <td style="color: blue; font-weight: bold;">(a-b)<sup>3</sup></td>
+                <td style="font-weight: bold;">A<sub>1</sub>+A<sub>2</sub>+...A<sub>i</sub></td>
+                <td style="color: blue; font-weight: bold;">y=x<sup>2</sup></td>
+            </tr>
+        </table>
+
+        <a href="#" class="to-top">Наверх</a>
+    </section>
+
+    <!-- ============================================================
+         ЗАДАНИЕ 4
+         ============================================================ -->
+    <section class="task" id="task3">
+        <h2><span class="task-number">4</span> Форма регистрации сайта</h2>
+
+        <div class="form-window">
+            <div class="titlebar">Пример</div>
+            <h3>Пример формы регистрации сайта</h3>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" placeholder="Введите логин">
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" value="******">
+
+                <label for="url">URL-адрес сайта:</label>
+                <input type="url" id="url" name="url" value="http://">
+
+                <label for="sitename">Название сайта:</label>
+                <input type="text" id="sitename" name="sitename">
+
+                <label for="description">Описание сайта:</label>
+                <textarea id="description" name="description"></textarea>
+
+                <label for="theme">Тема сайта:</label>
+                <select id="theme" name="theme">
+                    <option value="" selected>Тема не выбрана</option>
+                    <option value="tech">Технологии</option>
+                    <option value="science">Наука</option>
+                    <option value="art">Искусство</option>
+                    <option value="education">Образование</option>
+                </select>
+
+                <label for="banner">Баннер 80x31:</label>
+                <div class="file-input-wrapper">
+                    <input type="file" id="banner" name="banner" accept="image/*">
+                    <span class="hint">(Файл не выбран)</span>
+                </div>
+
+                <div class="button-group">
+                    <button type="reset">Очистить</button>
+                    <button type="submit">Отправить</button>
+                </div>
+            </form>
+        </div>
+
+        <a href="#" class="to-top">Наверх</a>
+    </section>
+
+    <!-- ============================================================
+         ЗАДАНИЕ 5
+         ============================================================ -->
+    <section class="task" id="task4">
+        <h2><span class="task-number">5</span> Форма заказа «Птицефабрика №1»</h2>
+
+        <div class="poultry-form">
+    <h3>ЗАО Птицефабрика №1</h3>
+
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td class="label">Фамилия</td>
+                <td><input type="text" name="lastname" class="short-field"></td>
+            </tr>
+            <tr>
+                <td class="label">Инициалы</td>
+                <td><input type="text" name="initials" class="short-field"></td>
+            </tr>
+            <tr>
+                <td class="label">Пароль</td>
+                <td><input type="password" name="password" class="short-field"></td>
+            </tr>
+            <tr>
+                <td class="label">Адрес получателя</td>
+                <td><input type="text" name="address" class="long-field"></td>
+            </tr>
+            <tr>
+                <td class="label">Количество</td>
+                <td><input type="text" name="quantity" class="short-field"></td>
+            </tr>
+            <tr>
+                <td class="label">Тип</td>
+                <td>
+                    <select name="type1">
+                        <option value="chicken" selected>Куриные</option>
+                        <option value="duck">Утиные</option>
+                        <option value="goose">Гусиные</option>
+                        <option value="quail">Перепелиные</option>
+                    </select>
+                    <select name="type2">
+                        <option value="selected" selected>Отборные</option>
+                        <option value="first">Первой категории</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- Added missing checkbox row -->
+            <tr>
+                <td class="label">Требуется накладная</td>
+                <td><input type="checkbox" name="invoice" value="yes"></td>
+            </tr>
+            <!-- Added missing textarea row -->
+            <tr>
+                <td class="label">Дополнительная информация</td>
+                <td><textarea name="info" class="long-field" rows="3"></textarea></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+        <a href="#" class="to-top">Наверх</a>
+    </section>
+
+    <footer class="main-footer">
+        &copy; 2026 НВГУ — Практическая работа по HTML/CSS
+    </footer>
+
+</div>
+
+</body>
+</html>
